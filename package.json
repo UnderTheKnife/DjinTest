@@ -8,15 +8,15 @@
     "bootstrap-icons": "^1.10.4",
     "ejs": "^3.1.9",
     "ejs-locals": "^1.0.2",
+    "ejs-static-converter": "^1.0.1",
     "express": "latest",
-    "jquery": "^3.6.4",
     "nodemon": "latest",
     "path": "latest",
     "sass": "^1.62.0"
   },
   "scripts": {
+    "build": "babel views/index.ejs --out-file index-compiled.html",
     "start": "node .",
-    "build": "node build .",
     "dev": "nodemon . & npm run scss",
     "scss": "sass --watch scss/main.scss public/main.css"
   },
@@ -29,5 +29,9 @@
   "bugs": {
     "url": "https://github.com/themaruf/nodeJS-Bootstrap-Express-boilerplate/issues"
   },
-  "homepage": "https://github.com/themaruf/nodeJS-Bootstrap-Express-boilerplate#readme"
+  "homepage": "https://github.com/themaruf/nodeJS-Bootstrap-Express-boilerplate#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4"
+  }
 }

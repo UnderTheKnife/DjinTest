@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Theme Template for Bootstrap</title>
+	<link rel="stylesheet" href="main.css">
+	<link href="/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body id="body">
+<header id="header" class="header">
+	<nav class="navbar navbar-expand-lg border-bottom">
+		<div class="container">
+			<div class="row flex-fill">
+				<div class="col-2 col-sm-1 d-lg-none order-1 p-0">
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarNav"
+						aria-controls="navbarNav"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+				<div class="col-12 col-lg-3 order-2 order-lg-0">
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav gap-2 w-100">
+							<li class="nav-item">
+								<a class="nav-link active" href=#">Photos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Videos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Podcasts</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-5 col-lg-1 order-4 order-lg-1 d-flex justify-content-center align-items-center mt-2 mt-lg-0">
+					<div class="d-flex gap-1">
+						<label class="order-0 form-check-label float-end" for="theme-toggle">
+							<i class="bi bi-sun-fill"></i>
+						</label>
+						<div class="form-check form-switch order-1">
+							<input class="form-check-input" type="checkbox" role="switch" id="theme-toggle">
+						</div>
+						<label class="order-2 form-check-label float-end" for="theme-toggle">
+							<i class="bi bi-moon-stars-fill"></i>
+						</label>
+					</div>
+				</div>
+				<div class="col-10 col-sm-11 col-lg-6 order-0 order-lg-2">
+					<div class="input-group align-items-center">
+						<input
+							class="form-control border rounded-pill ps-5 bg-secondary text-dark"
+							type="search"
+							id="example-search-input"
+							placeholder="Search for anything..."
+						>
+						<span class="position-absolute left-0 z-6 border-0 ms-3 bg-transparent rounded-pill bg-secondary">
+							<i class="bi bi-search"></i>
+						</span>
+					</div>
+				</div>
+				<div class="col-4 col-lg-1 order-3 order-lg-3 d-flex justify-content-start mt-2 mt-lg-0">
+					<div class="dropdown order-1 order-lg-2 d-flex">
+						<button
+							class="btn btn-light bg-transparent border-0 dropdown-toggle"
+							type="button" id="dropdownMenuButton1"
+							data-bs-toggle="dropdown"
+							aria-expanded="false"
+						>
+							Language
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							<li><a class="dropdown-item" href="#">English</a></li>
+							<li><a class="dropdown-item" href="#">Ukrainian</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-3 col-lg-1 order-5 order-lg-4 d-flex justify-content-end mt-2 mt-lg-0">
+					<button
+						class="btn btn-light border-0 bg-transparent text-nowrap order-2 order-lg-3"
+						type="button"
+						aria-label="Log In"
+					>
+						Log In
+					</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
+
+<script>
+	const themeToggle = document.getElementById('theme-toggle');
+
+	const header = document.getElementById('header');
+	const headerNavLinks = header.getElementsByClassName('nav-link');
+	for (let navLink of headerNavLinks) {
+		navLink.addEventListener('click', function () {
+			for (let link of headerNavLinks) {
+				link.classList.remove('active');
+			}
+			navLink.classList.add('active');
+		})
+	}
+
+	themeToggle.addEventListener('change', () => {
+		document.getElementById('body').classList.toggle('dark');
+	})
+</script>
+
+
+<main>
+	<div class="container pt-0 pt-lg-4">
+		<div class="container-fluid">
+			<div class="row pt-0 pt-lg-3">
+				<aside id="sidebar" class="col-lg-3  flex-shrink-1 flex-grow-0 sticky-top bg-light py-3 py-lg-0">
+	<div class="h-100 sticky-top">
+		<ul class="nav nav-pills flex-lg-column flex-row mb-auto justify-content-between text-truncate">
+			<li class="nav-item rounded-3">
+				<a href="#" class="nav-link active px-2 text-truncate">
+					<i class="bi bi-image fs-5"></i>
+					<span class="d-none d-md-inline">All photos</span>
+				</a>
+			</li>
+			<li class="nav-item rounded-3">
+				<a href="#" class="nav-link px-2 text-truncate">
+					<i class="bi bi-emoji-smile fs-5"></i>
+					<span class="d-none d-md-inline">Selfies</span>
+				</a>
+			</li>
+			<li class="nav-item rounded-3">
+				<a href="#" class="nav-link px-2 text-truncate">
+					<i class="bi bi-card-text fs-5"></i>
+					<span class="d-none d-md-inline">Recent</span> </a>
+			</li>
+			<li class="nav-item rounded-3">
+				<a href="#" class="nav-link px-2 text-truncate">
+					<i class="bi bi-trash fs-5"></i>
+					<span class="d-none d-md-inline">Deleted</span> </a>
+			</li>
+		</ul>
+	</div>
+</aside>
+
+<script>
+	const sidebar = document.getElementById('sidebar');
+	const sidebarNavLinks = sidebar.getElementsByClassName('nav-link');
+	for (let navLink of sidebarNavLinks) {
+		navLink.addEventListener('click', function () {
+			console.log('click')
+			for (let link of sidebarNavLinks) {
+				link.classList.remove('active');
+			}
+			navLink.classList.add('active');
+		})
+	}
+</script>
+
+				<div class="col-12 col-lg-8 offset-lg-1">
+					<div class="d-flex justify-content-between align-items-baseline">
+						<div>
+							<h1>All photos</h1>
+							<p>150 items</p>
+						</div>
+						<div>
+							<div class="btn-group">
+								<input type="radio" class="btn-check" name="options" id="radio1" autocomplete="off" checked>
+								<label class="btn btn-outline-dark" for="radio1">Newest</label>
+
+								<input type="radio" class="btn-check" name="options" id="radio2" autocomplete="off">
+								<label class="btn btn-outline-dark" for="radio2">Latest</label>
+							</div>
+						</div>
+					</div>
+					<div class="container-fluid pb-5">
+	<div id="cards" class="row">
+
+	</div>
+	<div id="cards-spinner" class="container-fluid d-flex justify-content-center invisible">
+		<div class="spinner-border" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ante massa, sodales et varius ut, tincidunt sit amet arcu. In eu ante mattis diam mattis cursus sit amet ut eros. Fusce sit amet lorem quam. Aliquam vitae turpis lectus. Fusce eu imperdiet risus. Donec vestibulum quis ipsum sit amet vulputate. Aenean consectetur, mi ac eleifend posuere, arcu lorem rutrum dolor, sit amet mattis libero mauris scelerisque lorem. Suspendisse ultricies dolor id neque tincidunt, sit amet iaculis ex imperdiet. Praesent mi neque, pulvinar quis sem in, dictum suscipit diam. Nullam venenatis mi in finibus efficitur. Morbi vel magna ex. Nulla ac venenatis libero. Ut tortor dolor, varius vitae est ut, iaculis aliquam tellus. Suspendisse aliquet malesuada tortor, vestibulum consectetur orci luctus ut.'
+	let page = 0;
+	let loading = false;
+
+	const loadingView = document.getElementById('cards-spinner');
+	const cardsView = document.getElementById('cards');
+	console.log(cardsView)
+
+	function redrawText() {
+		const cards = cardsView.getElementsByClassName('card');
+		for (let card of cards) {
+			const cardText = card.getElementsByClassName('card-text')[0];
+			const cardTextBody = card.getElementsByClassName('card-text_body')[0];
+			const showMoreButton = card.getElementsByClassName('show-more_button')[0];
+			console.log(cardTextBody.scrollHeight > cardText.clientHeight);
+			if (cardTextBody.scrollHeight > cardText.clientHeight) {
+				showMoreButton.classList.remove('invisible')
+				showMoreButton.addEventListener('click', function (event){
+					cardText.classList.toggle('expanded')
+					cardText.classList.toggle('collapsed')
+					showMoreButton.textContent = event.target.textContent.includes('more') ? 'Show less...' : 'Show more...';
+				})
+			} else {
+				showMoreButton.classList.add('invisible')
+			}
+		}
+	}
+
+	function renderNewCards(cards){
+		cards.forEach(function (card) {
+			const cardView = document.createElement('div');
+			cardView.classList.add('col-12', 'col-lg-6', 'mb-4')
+			cardView.innerHTML = `
+				<div class="card bg-light overflow-hidden">
+					<img src="${card.download_url}" class="card-image" alt="${card.author}">
+					<div class="px-4 pt-3 pb-0">
+						<h2 class="text-dark">${card.author}</h2>
+						<div id="card-text" class="card-text collapsed">
+							<p id="card-text_body" class="m-0 card-text_body">${lorem.slice(0,  Math.floor(Math.random() * lorem.length))}</p>
+						</div>
+					</div>
+					<div class="px-3 py-2 show-more">
+						<button class="btn border-0 show-more_button invisible fw-bolder">Show more...</button>
+					</div>
+					<div class="p-3 border-top">
+						<button class="btn btn-primary">Save to collection</button>
+						<button class="btn btn-outline-primary">Share</button>
+					</div>
+				</div>`;
+
+			cardsView.appendChild(cardView);
+		});
+		redrawText();
+	}
+
+	function loadCards (){
+		if (loading) return;
+
+		loading = true;
+		loadingView.classList.remove('invisible')
+
+		setTimeout(function () {
+			fetch(`https://picsum.photos/v2/list?page=${page}&limit=9	`).then(function (response) {
+				return response.json();
+			}).then(function (data) {
+				renderNewCards(data)
+			}).catch(function (err) {
+				console.warn('Something went wrong.', err);
+			}).finally(function (){
+				loading = false;
+				loadingView.classList.add('invisible')
+			})}, 500);
+	}
+
+	window.addEventListener('scroll',()=>{
+		const {scrollHeight,scrollTop,clientHeight} = document.documentElement;
+		if (scrollTop + clientHeight > scrollHeight - 5){
+			if (!loading) {
+				page += 1;
+				loadCards();
+			}
+		}
+	});
+
+	window.addEventListener('load', loadCards)
+</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+</body>
+<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+</html>
