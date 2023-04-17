@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Theme Template for Bootstrap</title>
+	<link rel="stylesheet" href="main.css">
+	<link href="/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body id="body">
+<%- include('header') %>
+
+<main>
+	<div class="container pt-0 pt-lg-4">
+		<div class="container-fluid">
+			<div class="row pt-0 pt-lg-3">
+				<%- include('sidebar') %>
+
+				<div class="col-12 col-lg-8 offset-lg-1">
+					<div class="d-flex justify-content-between align-items-baseline">
+						<div>
+							<h1>All photos</h1>
+							<p>150 items</p>
+						</div>
+						<div>
+							<div class="btn-group">
+								<input type="radio" class="btn-check" name="options" id="radio1" autocomplete="off" checked>
+								<label class="btn btn-outline-dark" for="radio1">Newest</label>
+
+								<input type="radio" class="btn-check" name="options" id="radio2" autocomplete="off">
+								<label class="btn btn-outline-dark" for="radio2">Latest</label>
+							</div>
+						</div>
+					</div>
+					<%- include('cards') %>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+</body>
+<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+</html>

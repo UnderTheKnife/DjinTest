@@ -1,0 +1,42 @@
+<aside id="sidebar" class="col-lg-3  flex-shrink-1 flex-grow-0 sticky-top bg-light py-3 py-lg-0">
+	<div class="h-100 sticky-top">
+		<ul class="nav nav-pills flex-lg-column flex-row mb-auto justify-content-between text-truncate">
+			<li class="nav-item rounded-3">
+				<a href="#" class="nav-link active px-2 text-truncate">
+					<i class="bi bi-image fs-5"></i>
+					<span class="d-none d-md-inline">All photos</span>
+				</a>
+			</li>
+			<li class="nav-item rounded-3">
+				<a href="#" class="nav-link px-2 text-truncate">
+					<i class="bi bi-emoji-smile fs-5"></i>
+					<span class="d-none d-md-inline">Selfies</span>
+				</a>
+			</li>
+			<li class="nav-item rounded-3">
+				<a href="#" class="nav-link px-2 text-truncate">
+					<i class="bi bi-card-text fs-5"></i>
+					<span class="d-none d-md-inline">Recent</span> </a>
+			</li>
+			<li class="nav-item rounded-3">
+				<a href="#" class="nav-link px-2 text-truncate">
+					<i class="bi bi-trash fs-5"></i>
+					<span class="d-none d-md-inline">Deleted</span> </a>
+			</li>
+		</ul>
+	</div>
+</aside>
+
+<script>
+	const sidebar = document.getElementById('sidebar');
+	const sidebarNavLinks = sidebar.getElementsByClassName('nav-link');
+	for (let navLink of sidebarNavLinks) {
+		navLink.addEventListener('click', function () {
+			console.log('click')
+			for (let link of sidebarNavLinks) {
+				link.classList.remove('active');
+			}
+			navLink.classList.add('active');
+		})
+	}
+</script>

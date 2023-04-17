@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-bootstrap-express-boilerplate",
+  "version": "1.0.1",
+  "description": "This is a simple boilerplate for integrating bootstrap with node",
+  "main": "app.js",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.4",
+    "ejs": "^3.1.9",
+    "ejs-locals": "^1.0.2",
+    "express": "latest",
+    "jquery": "^3.6.4",
+    "nodemon": "latest",
+    "path": "latest",
+    "sass": "^1.62.0"
+  },
+  "scripts": {
+    "start": "node .",
+    "build": "node build .",
+    "dev": "nodemon . & npm run scss",
+    "scss": "sass --watch scss/main.scss public/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themaruf/nodeJS-Bootstrap-Express-boilerplate.git"
+  },
+  "author": "themaruf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/themaruf/nodeJS-Bootstrap-Express-boilerplate/issues"
+  },
+  "homepage": "https://github.com/themaruf/nodeJS-Bootstrap-Express-boilerplate#readme"
+}

@@ -1,0 +1,99 @@
+<div class="container-fluid pb-5">
+	<div id="cards" class="row">
+
+	</div>
+	<div id="cards-spinner" class="container-fluid d-flex justify-content-center invisible">
+		<div class="spinner-border" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ante massa, sodales et varius ut, tincidunt sit amet arcu. In eu ante mattis diam mattis cursus sit amet ut eros. Fusce sit amet lorem quam. Aliquam vitae turpis lectus. Fusce eu imperdiet risus. Donec vestibulum quis ipsum sit amet vulputate. Aenean consectetur, mi ac eleifend posuere, arcu lorem rutrum dolor, sit amet mattis libero mauris scelerisque lorem. Suspendisse ultricies dolor id neque tincidunt, sit amet iaculis ex imperdiet. Praesent mi neque, pulvinar quis sem in, dictum suscipit diam. Nullam venenatis mi in finibus efficitur. Morbi vel magna ex. Nulla ac venenatis libero. Ut tortor dolor, varius vitae est ut, iaculis aliquam tellus. Suspendisse aliquet malesuada tortor, vestibulum consectetur orci luctus ut.'
+	let page = 0;
+	let loading = false;
+
+	const loadingView = document.getElementById('cards-spinner');
+	const cardsView = document.getElementById('cards');
+	console.log(cardsView)
+
+	function redrawText() {
+		const cards = cardsView.getElementsByClassName('card');
+		for (let card of cards) {
+			const cardText = card.getElementsByClassName('card-text')[0];
+			const cardTextBody = card.getElementsByClassName('card-text_body')[0];
+			const showMoreButton = card.getElementsByClassName('show-more_button')[0];
+			console.log(cardTextBody.scrollHeight > cardText.clientHeight);
+			if (cardTextBody.scrollHeight > cardText.clientHeight) {
+				showMoreButton.classList.remove('invisible')
+				showMoreButton.addEventListener('click', function (event){
+					cardText.classList.toggle('expanded')
+					cardText.classList.toggle('collapsed')
+					showMoreButton.textContent = event.target.textContent.includes('more') ? 'Show less...' : 'Show more...';
+				})
+			} else {
+				showMoreButton.classList.add('invisible')
+			}
+		}
+	}
+
+	function renderNewCards(cards){
+		cards.forEach(function (card) {
+			const cardView = document.createElement('div');
+			cardView.classList.add('col-12', 'col-lg-6', 'mb-4')
+			cardView.innerHTML = `
+				<div class="card bg-light overflow-hidden">
+					<img src="${card.download_url}" class="card-image" alt="${card.author}">
+					<div class="px-4 pt-3 pb-0">
+						<h2 class="text-dark">${card.author}</h2>
+						<div id="card-text" class="card-text collapsed">
+							<p id="card-text_body" class="m-0 card-text_body">${lorem.slice(0,  Math.floor(Math.random() * lorem.length))}</p>
+						</div>
+					</div>
+					<div class="px-3 py-2 show-more">
+						<button class="btn border-0 show-more_button invisible fw-bolder">Show more...</button>
+					</div>
+					<div class="p-3 border-top">
+						<button class="btn btn-primary">Save to collection</button>
+						<button class="btn btn-outline-primary">Share</button>
+					</div>
+				</div>`;
+
+			cardsView.appendChild(cardView);
+		});
+		redrawText();
+	}
+
+	function loadCards (){
+		if (loading) return;
+
+		loading = true;
+		loadingView.classList.remove('invisible')
+
+		setTimeout(function () {
+			fetch(`https://picsum.photos/v2/list?page=${page}&limit=9	`).then(function (response) {
+				return response.json();
+			}).then(function (data) {
+				renderNewCards(data)
+			}).catch(function (err) {
+				console.warn('Something went wrong.', err);
+			}).finally(function (){
+				loading = false;
+				loadingView.classList.add('invisible')
+			})}, 500);
+	}
+
+	window.addEventListener('scroll',()=>{
+		const {scrollHeight,scrollTop,clientHeight} = document.documentElement;
+		if (scrollTop + clientHeight > scrollHeight - 5){
+			if (!loading) {
+				page += 1;
+				loadCards();
+			}
+		}
+	});
+
+	window.addEventListener('load', loadCards)
+</script>
