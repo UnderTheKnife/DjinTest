@@ -7,7 +7,6 @@ app.set('view engine', 'ejs');
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'));
-app.use('/bootstrap-icons', express.static(__dirname + '/node_modules/bootstrap-icons/font'));
 
 app.get('/', function(request,response){
 	response.render('index');
