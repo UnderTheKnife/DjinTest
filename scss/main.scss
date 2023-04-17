@@ -10,11 +10,14 @@ $light: #ffffff;
 $body-color: #666666;
 $link-color: $body-color;
 $link-hover-color: $primary;
+$dropdown-link-active-bg: $primary;
 $navbar-light-color: $body-color;
 $navbar-light-hover-color: rgba($primary, .7);
 $navbar-light-active-color: $body-color;
 $nav-pills-link-active-bg: rgba($primary, .9);
 $card-border-color: #dee2e6;
+$dropdown-bg: $light;
+$dropdown-link-color: $body-color;
 
 $theme-colors: (
   "primary": $primary,
@@ -76,6 +79,8 @@ $theme-colors: (
   $navbar-light-active-color: $body-color;
   $nav-pills-link-active-bg: rgba($primary, .9);
   $card-border-color: $dark;
+  $dropdown-bg: $light;
+  $dropdown-link-color: $body-color;
 
   --#{$variable-prefix}body-color: #{$body-color};
   --#{$variable-prefix}body-bg: #{$body-bg};

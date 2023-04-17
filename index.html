@@ -78,10 +78,10 @@
 							data-bs-toggle="dropdown"
 							aria-expanded="false"
 						>
-							Language
+							English
 						</button>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-							<li><a class="dropdown-item" href="#">English</a></li>
+							<li><a class="dropdown-item active" href="#">English</a></li>
 							<li><a class="dropdown-item" href="#">Ukrainian</a></li>
 						</ul>
 					</div>
@@ -92,7 +92,7 @@
 						type="button"
 						aria-label="Log In"
 					>
-						Log In
+						Sign In
 					</button>
 				</div>
 			</div>
@@ -105,12 +105,25 @@
 
 	const header = document.getElementById('header');
 	const headerNavLinks = header.getElementsByClassName('nav-link');
+	const headerDropdownItems = header.getElementsByClassName('dropdown-item');
+	const headerDropdownToggler = header.getElementsByClassName('dropdown-toggle')[0];
+
 	for (let navLink of headerNavLinks) {
 		navLink.addEventListener('click', function () {
 			for (let link of headerNavLinks) {
 				link.classList.remove('active');
 			}
 			navLink.classList.add('active');
+		})
+	}
+
+	for (let dropdownItem of headerDropdownItems) {
+		dropdownItem.addEventListener('click', function (event) {
+			for (let item of headerDropdownItems) {
+				item.classList.remove('active');
+			}
+			dropdownItem.classList.add('active');
+			headerDropdownToggler.textContent = event.target.text;
 		})
 	}
 
