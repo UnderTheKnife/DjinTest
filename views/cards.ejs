@@ -17,7 +17,6 @@
 
 	const loadingView = document.getElementById('cards-spinner');
 	const cardsView = document.getElementById('cards');
-	console.log(cardsView)
 
 	function redrawText() {
 		const cards = cardsView.getElementsByClassName('card');
@@ -25,7 +24,6 @@
 			const cardText = card.getElementsByClassName('card-text')[0];
 			const cardTextBody = card.getElementsByClassName('card-text_body')[0];
 			const showMoreButton = card.getElementsByClassName('show-more_button')[0];
-			console.log(cardTextBody.scrollHeight > cardText.clientHeight);
 			if (cardTextBody.scrollHeight > cardText.clientHeight) {
 				showMoreButton.classList.remove('invisible')
 				showMoreButton.addEventListener('click', function (event){

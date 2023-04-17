@@ -32,7 +32,6 @@
 	const sidebarNavLinks = sidebar.getElementsByClassName('nav-link');
 	for (let navLink of sidebarNavLinks) {
 		navLink.addEventListener('click', function () {
-			console.log('click')
 			for (let link of sidebarNavLinks) {
 				link.classList.remove('active');
 			}
